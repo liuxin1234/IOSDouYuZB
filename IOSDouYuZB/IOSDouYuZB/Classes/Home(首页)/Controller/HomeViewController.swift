@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         return titleView
     }()
     
-    private lazy var pageContentView : PageContentView = { [weak self] in
+    fileprivate lazy var pageContentView : PageContentView = { [weak self] in
         //1.确定内容的frame
         let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH - kTabBarH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
@@ -45,12 +45,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         //设置UI界面
         setUpUI()
-       
+        
     }
 }
 
 //这里尽然用extension进行模块划分
-//让代码看起来简洁一些 主要：设置UI界面
+
+// MARK: 让代码看起来简洁一些 主要：设置UI界面
 extension HomeViewController {
     fileprivate func setUpUI() {
         //0.不需要调整UIScrollView的内边距
@@ -84,6 +85,8 @@ extension HomeViewController {
         navigationItem.rightBarButtonItems = [ historyItem, searchItem, qrcodeItem ]
     }
 }
+
+
 
 // MARK:- 遵守PageTitleViewDelegate协议
 extension HomeViewController : PageTitleViewDelegate {

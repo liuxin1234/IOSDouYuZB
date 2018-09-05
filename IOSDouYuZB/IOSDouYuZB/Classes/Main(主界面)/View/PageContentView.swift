@@ -17,14 +17,14 @@ private let ContentCellID = "ContentCellID"
 
 class PageContentView: UIView {
     // MARK: 定义属性
-    private var childVcs : [UIViewController]
-    private weak var parentViewController : UIViewController?
-    private var startOffsetX : CGFloat =  0
-    private var isForbidScrollDelegate : Bool = false
+    fileprivate var childVcs : [UIViewController]
+    fileprivate weak var parentViewController : UIViewController?
+    fileprivate var startOffsetX : CGFloat =  0
+    fileprivate var isForbidScrollDelegate : Bool = false
     weak var delegate : PageContentViewDelegate?
     
     // MARK: 懒加载属性
-    private lazy var collectionView : UICollectionView = { [weak self] in
+    fileprivate lazy var collectionView : UICollectionView = { [weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = (self?.bounds.size)!
@@ -61,7 +61,7 @@ class PageContentView: UIView {
 
 // MARK: 设置UI界面
 extension PageContentView {
-    private func setupUI() {
+    fileprivate func setupUI() {
         //1.将所有的子控制器添加到父控制器中
         for childVc in childVcs {
             parentViewController?.addChildViewController(childVc)

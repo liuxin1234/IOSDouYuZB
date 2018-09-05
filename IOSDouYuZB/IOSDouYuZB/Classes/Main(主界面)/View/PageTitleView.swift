@@ -22,7 +22,7 @@ private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (255,128,0)
 class PageTitleView: UIView {
 
     // MARK: 定义属性
-    private var currentIndex : Int = 0
+    fileprivate var currentIndex : Int = 0
     fileprivate var titles : [String]
     //代理最好写weak
     weak var delegate : PageTitleViewDelegate?
@@ -63,7 +63,7 @@ class PageTitleView: UIView {
 
 // 扩展类 设置UI界面
 extension PageTitleView {
-    private func setUpUI() {
+    fileprivate func setUpUI() {
         //1.添加UIScrollView
         addSubview(scrollView)
         scrollView.frame = bounds
@@ -134,11 +134,14 @@ extension PageTitleView {
 
 // MARK: 监听Label的点击
 extension PageTitleView {
-    @objc private func titleLabelClick(tapGes : UITapGestureRecognizer) {
-        //1.获取当前的Label
+    @objc fileprivate func titleLabelClick(tapGes : UITapGestureRecognizer) {
+        //0.获取当前的Label
         guard let currentLabel = tapGes.view as? UILabel else {
             return
         }
+        
+        //1.如果是重复点击同一个title,那么直接返回
+        if currentLabel.tag == currentIndex {return}
         
         //2.获取之前的Label
         let oldLabel = titleLabels[currentIndex]
