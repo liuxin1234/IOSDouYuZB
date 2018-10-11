@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnchorGroup: NSObject {
+class AnchorGroup: BaseGameModel {
     //给基本数据类型初始化
     //使用KVC会提示无法找到age的KEY，因为Int是一个基本数据类型的结构体，OC中只有基本数据类型。因此对于基本数据类型要设置初始值。
     //var age: Int = 0
@@ -24,39 +24,12 @@ class AnchorGroup: NSObject {
             }
         }
     }
-    // 组显示的标题
-    var tag_name: String = ""
-    // 游戏对应的图标
-    var icon_url : String = ""
+   
     // 主显示的图标
     var icon_name: String = "home_header_normal"
     // 定义主播的模型对象数组
     lazy var anchors : [AnchorModel] = [AnchorModel]()
     
-    override init() {
-        
-    }
-    
-    //这里涉及计算，所以就不要设置为可选了  对外提供的参数之间为不可选的
-    init(dict: [String: NSObject]) {
-        super.init()
-        setValuesForKeys(dict)
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
-        
-    }
-    
-    /*
-    override func setValue(_ value: Any?, forKey key: String) {
-        if key == "room_list" {
-            if let dataArray = value as? [[String : NSObject]] {
-                for dict in dataArray {
-                    anchors.append(AnchorModel(dict: dict))
-                }
-            }
-        }
-    }
-     */
+  
 }
 
