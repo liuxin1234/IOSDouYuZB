@@ -29,7 +29,7 @@
         <!--首页-->
         <scene sceneID="5Yo-xD-TtP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z74-xD-8LR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z74-xD-8LR" customClass="CustomNavigationController" customModule="IOSDouYuZB" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="btn_home_selected" selectedImage="btn_home_normal" id="1Tx-FF-iXO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rUd-IB-46P">
